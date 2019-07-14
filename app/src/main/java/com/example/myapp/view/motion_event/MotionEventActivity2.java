@@ -16,19 +16,15 @@ import com.example.myapp.R;
 
 import java.util.ArrayList;
 
-
-/**
- * 外部拦截法
- */
-public class MotionEventActivity1 extends AppCompatActivity {
+public class MotionEventActivity2 extends AppCompatActivity {
 
     private static final String TAG = "MotionEventActivity1";
-    private HorizontalScrollViewEX mListContainer;
+    private HorizontalScrollViewEX1 mListContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_motion_event1);
+        setContentView(R.layout.activity_motion_event2);
         initView();
     }
 
@@ -38,11 +34,11 @@ public class MotionEventActivity1 extends AppCompatActivity {
         final int screenWidth = 1080;
         final int screenHeight = 1920;
         for (int i = 0; i < 3; i++) {
-            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.content_layout,mListContainer,false);
+            ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.content_layout2,mListContainer,false);
             layout.getLayoutParams().width = screenWidth;
             TextView textView = layout.findViewById(R.id.title);
-            textView.setText("page: " + (i + 1));
-            layout.setBackgroundColor(Color.rgb(255/(i+1),255/(i+1),0));
+            textView.setText("内部拦截法：page: " + (i + 1));
+            layout.setBackgroundColor(Color.rgb(255/(i+6),255/(i+1),0));
             createList(layout);
             mListContainer.addView(layout);
         }
@@ -51,7 +47,8 @@ public class MotionEventActivity1 extends AppCompatActivity {
     }
 
     private void createList(ViewGroup layout) {
-        ListView listView = layout.findViewById(R.id.list);
+        ListViewEX listView = layout.findViewById(R.id.list);
+        listView.setmHorizontalScrollViewEX1(mListContainer);
         ArrayList<String> datas = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             datas.add("name: " + i);
@@ -62,7 +59,7 @@ public class MotionEventActivity1 extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MotionEventActivity1.this,"click_item " + position,Toast.LENGTH_LONG).show();
+                Toast.makeText(MotionEventActivity2.this,"click_item " + position,Toast.LENGTH_LONG).show();
             }
         });
     }

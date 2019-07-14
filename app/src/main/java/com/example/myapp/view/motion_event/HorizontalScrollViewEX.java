@@ -12,7 +12,7 @@ import android.widget.Scroller;
 /**
  * 外部拦截法
  */
-public class HorizontalSrollViewEX extends ViewGroup {
+public class HorizontalScrollViewEX extends ViewGroup {
     private static final String TAG = "HorizontalSrollViewEX";
     private int mChildrenSize;
     private int mChildrenWidth;
@@ -29,17 +29,17 @@ public class HorizontalSrollViewEX extends ViewGroup {
     private VelocityTracker mVelocityTracker;
 
 
-    public HorizontalSrollViewEX(Context context) {
+    public HorizontalScrollViewEX(Context context) {
         super(context);
         init();
     }
 
-    public HorizontalSrollViewEX(Context context, AttributeSet attrs) {
+    public HorizontalScrollViewEX(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public HorizontalSrollViewEX(Context context, AttributeSet attrs, int defStyleAttr) {
+    public HorizontalScrollViewEX(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
